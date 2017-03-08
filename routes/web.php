@@ -17,6 +17,4 @@ Route::get('/', function () {
 
 Route::get('siandien', 'defaultControler@show');
 
-Route::get('as-esu/{name?}', function ($name = '3wa'){
-	return 'Mano vardas - '. ucfirst($name);
-});
+Route::get('as-esu/{name?}', 'defaultControler@name');
