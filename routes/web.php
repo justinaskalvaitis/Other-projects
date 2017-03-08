@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('siandien', function () {
+	$date = new DateTime();
+    return 'siandienos data yra ' . $date->format('Y-m-d');
+});
+
+Route::get('as-esu/{name?}', function ($name = '3wa'){
+	return 'Mano vardas - '. ucfirst($name);
+});
