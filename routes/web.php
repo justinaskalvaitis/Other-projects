@@ -15,11 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('siandien', function () {
-	$date = new DateTime();
-	return view('date', ['date' =>$date->format('Y-m-d')]);
-});
-
+Route::get('siandien', 'defaultControler@show');
 
 Route::get('as-esu/{name?}', function ($name = '3wa'){
 	return 'Mano vardas - '. ucfirst($name);
