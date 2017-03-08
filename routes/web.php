@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('siandien', 'defaultControler@show');
 
 Route::get('as-esu/{name?}', 'defaultControler@name');
+
+Route::get('show', 'defaultControler@categories');

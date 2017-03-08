@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class defaultControler extends Controller
 {
@@ -21,4 +22,13 @@ class defaultControler extends Controller
             'slogan' => 'Mano vardas'
         ]);
     }
+    public function categories() 
+    {
+
+        $categories = Category::all();
+
+        return view('categories', ['list' => $categories]);
+    }
+
+
 }
