@@ -17,8 +17,8 @@
 	<nav class=" navbar navbar-default ">
 	
 		    <ul class="nav-justified">
-		    	<li><a class="navbar-brand" href="/categories">Kategorijos</a></li>
-		    	<li><a class="navbar-brand" href="/manufacturer">Gamintojas</a></li>
+		    	<li class="dropdown"><a class="navbar-brand dropdown-toggle" href="/categories">Kategorijos</a></li>
+		    	<li><a class="navbar-brand " href="/manufacturer">Gamintojas</a></li>
 		    	<li><a class="navbar-brand" href="">Produktai</a></li>
 		    </ul>
 		
