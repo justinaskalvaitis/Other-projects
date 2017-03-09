@@ -38,9 +38,7 @@ class defaultControler extends Controller
         return view('products', ['list' => $products]);
     }
 
-    public function categoryProducts()
-    {
-        $categories = 
-    }
+    
+    
 
 }

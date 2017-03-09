@@ -3,11 +3,27 @@
 <head>
 	<title>3wa Laravel</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<style>
+	nav li {
+		display: inline-block;
+		padding: 10px;
+		margin-top: 10px;
+	}
+</style>
 </head>
 <body>
 
-
+<div class="container">
+	<nav class=" navbar navbar-default ">
+	
+		    <ul class="nav-justified">
+		    	<li><a class="navbar-brand" href="/categories">Kategorijos</a></li>
+		    	<li><a class="navbar-brand" href="/manufacturer">Gamintojas</a></li>
+		    	<li><a class="navbar-brand" href="">Produktai</a></li>
+		    </ul>
+		
+	</nav>
+</div>
 	<div class="container">
 		@yield('content')
 

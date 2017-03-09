@@ -4,7 +4,7 @@
 	<h2>Kategorijų sąrašas</h2>
 	<ul>
 	  @foreach ($categories as $category)
-	  <li>{{ $category->title}}</li>
+	  <li><a href="{{ route('categories.show', ['id' => $category->id]) }}">{{ $category->title}}</a></li>
 	  @endforeach
 	</ul>
 
