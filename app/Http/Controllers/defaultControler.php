@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 
 class defaultControler extends Controller
 {
@@ -28,6 +29,13 @@ class defaultControler extends Controller
         $categories = Category::all();
 
         return view('categories', ['list' => $categories]);
+    }
+
+    public function products()
+    {
+        $products = Product::All('title');
+
+        return view('products', ['list' => $products]);
     }
 
 
