@@ -33,7 +33,7 @@ class defaultControler extends Controller
 
     public function products()
     {
-        $products = Product::All('title');
+        $products = Product::All();
 
         return view('products', ['list' => $products]);
     }

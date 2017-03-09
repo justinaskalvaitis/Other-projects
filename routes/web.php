@@ -22,3 +22,5 @@ Route::get('as-esu/{name?}', 'defaultControler@name');
 Route::get('show', 'defaultControler@categories');
 
 Route::get('products', 'defaultControler@products');
+
+Route::get('/', 'defaultControler@products');
