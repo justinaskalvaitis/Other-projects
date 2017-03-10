@@ -5,9 +5,8 @@
 <h2>Produkto sukurimas</h2>
 
 @if(isset($product))
-{!! Form::model($product, ['route' => 'products.store', 'method' => 'post'])  !!}
+{!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put'])  !!}
 @else
-
 {!! Form::open(['route' => 'products.store', 'method'=> 'post']) !!}
 @endif
 
@@ -38,9 +37,18 @@
 {!!Form::text('image_url', null, ['class' => 'form-control', 'placeholder' => 'image_url']) !!}
 </div>
 {!! Form::submit('save', ['class' => 'btn btn-primary']) !!}
+<br><br>
 
 
 
 {!! Form::close() !!}
+
+@if(isset($product))
+{!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
+
+{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+
+{!! Form::close() !!}
+@endif
 
 @endsection

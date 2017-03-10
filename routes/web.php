@@ -15,15 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('siandien', 'defaultControler@show');
-
-Route::get('as-esu/{name?}', 'defaultControler@name');
-
-Route::get('show', 'defaultControler@categories');
-
-// Route::get('products', 'defaultControler@products');
-
-Route::get('/', 'defaultControler@products');
+Route::get('/', 'ProductController@index');
 
 // Route::get('categories', 'defaultControler@categories');
 
@@ -31,5 +23,5 @@ Route::get('/', 'defaultControler@products');
 
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'CategoryController');
-Route::resource('manufacturer', 'ManufacturersController');
+Route::resource('manufacturers', 'ManufacturerController');
 

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Product;
+use App\Category;
 use App\Manufacturer;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ManufacturerController extends Controller
      */
     public function index()
     {
-        //
+        $manufacturers = Manufacturer::all();
+
+        return view('manufacturer.index', ['list'=> $manufacturers]);
     }
 
     /**
@@ -24,7 +27,8 @@ class ManufacturerController extends Controller
      */
     public function create()
     {
-        //
+
+        return view ('manufacturer.form');
     }
 
     /**
@@ -35,7 +39,14 @@ class ManufacturerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $manufacturer = new Manufacturer();
+        $manufacturer->title = $request->title;
+        $manufacturer->website_url = $request->website_url;
+        $manufacturer->country = $request->country;
+
+        $manufacturer->save();
+
+        return redirect()->route('manufacturers.index');
     }
 
     /**
@@ -46,7 +57,7 @@ class ManufacturerController extends Controller
      */
     public function show(Manufacturer $manufacturer)
     {
-        //
+        return view('manufacturer.show', ['manufacturer'=>$manufacturer]);
     }
 
     /**
@@ -57,7 +68,10 @@ class ManufacturerController extends Controller
      */
     public function edit(Manufacturer $manufacturer)
     {
-        //
+        
+
+
+        return view ('manufacturer.form', ['manufacturer' => $manufacturer]);
     }
 
     /**
@@ -69,7 +83,13 @@ class ManufacturerController extends Controller
      */
     public function update(Request $request, Manufacturer $manufacturer)
     {
-        //
+        $manufacturer->title = $request->title;
+        $manufacturer->website_url = $request->website_url;
+        $manufacturer->country = $request->country;
+
+        $manufacturer->update();
+
+        return redirect()->route('manufacturers.index');  
     }
 
     /**
@@ -80,6 +100,7 @@ class ManufacturerController extends Controller
      */
     public function destroy(Manufacturer $manufacturer)
     {
-        //
+        $manufacturer->delete();
+       return redirect()->route('manufacturers.index');
     }
 }

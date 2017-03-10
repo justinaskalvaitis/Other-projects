@@ -14,6 +14,7 @@
 						<p>{{$products->description }}</p>
 						<p>Kiekis: {{$products->quantity}}
 							Aprasymas: {{$products->description}}</p>
+							Kaina: {{$products->price}}
 
 						<p>
 						@if ($products->category)

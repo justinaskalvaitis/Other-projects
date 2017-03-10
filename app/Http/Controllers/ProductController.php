@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $products = Product::All();
 
-        return view('products', ['list' => $products]);
+        return view('product.index', ['list' => $products]);
     }
 
     /**
@@ -47,8 +47,8 @@ class ProductController extends Controller
     $product = new Product();
     $product->title = $request->title;
     $product->description = $request->description;
-    $product->category_id = 1;
-    $product->manufacturer_id = 1;
+    $product->category_id = $request->category_id;
+    $product->manufacturer_id = $request->manufacturer_id;
     $product->price = $request->price;
     $product->quantity = $request->quantity;
     $product->image_url = $request->image_url;
@@ -93,7 +93,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
+        $product->manufacturer_id = $request->manufacturer_id;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->image_url = $request->image_url;
+
+        $product->update();
+
+    return redirect()->route('products.index');
     }
 
     /**
@@ -104,6 +114,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+       $product->delete();
+       return redirect()->route('products.index');
     }
 }
