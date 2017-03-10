@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
+use App\Manufacturer;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -14,7 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::All();
+
+        return view('products', ['list' => $products]);
     }
 
     /**
@@ -24,7 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all()->pluck('title', 'id');
+        $manufacturers = Manufacturer::all()->pluck('title', 'id');
+
+        return view ('product.form', ['categories' => $categories, 'manufacturers' => $manufacturers]);
+      
     }
 
     /**
@@ -35,7 +44,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $product = new Product();
+    $product->title = $request->title;
+    $product->description = $request->description;
+    $product->category_id = 1;
+    $product->manufacturer_id = 1;
+    $product->price = $request->price;
+    $product->quantity = $request->quantity;
+    $product->image_url = $request->image_url;
+
+    $product->save();
+
+    return redirect()->route('products.index');
     }
 
     /**
@@ -46,7 +66,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+
+        return view('product.show', ['product'=>$product]);
     }
 
     /**
@@ -57,7 +78,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::all()->pluck('title', 'id');
+        $manufacturers = Manufacturer::all()->pluck('title', 'id');
+
+        return view ('product.form', ['categories' => $categories, 'manufacturers' => $manufacturers, 'product'=>$product]);
     }
 
     /**
