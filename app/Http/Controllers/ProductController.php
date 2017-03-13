@@ -53,6 +53,7 @@ class ProductController extends Controller
     $product->quantity = $request->quantity;
     $product->image_url = $request->image_url;
 
+
     $product->save();
 
     return redirect()->route('products.index');

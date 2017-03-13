@@ -7,7 +7,7 @@
 @if(isset($product))
 {!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put'])  !!}
 @else
-{!! Form::open(['route' => 'products.store', 'method'=> 'post']) !!}
+{!! Form::open(['route' => 'products.store', 'files' => true ,'method'=> 'post']) !!}
 @endif
 
 
@@ -35,6 +35,9 @@
 </div>
 <div class="form-group">
 {!!Form::text('image_url', null, ['class' => 'form-control', 'placeholder' => 'image_url']) !!}
+</div>
+<div class="form-group">
+{!! Form::file('image_url') !!}
 </div>
 {!! Form::submit('save', ['class' => 'btn btn-primary']) !!}
 <br><br>
