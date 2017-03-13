@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view ('category.form');
     }
 
     /**
@@ -36,7 +36,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->title = $request->title;
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -58,7 +62,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view ('category.form', ['category' => $category]);
     }
 
     /**
@@ -70,7 +74,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->title = $request->title;
+        $category->update();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -81,6 +88,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+       return redirect()->route('categories.index');
     }
 }

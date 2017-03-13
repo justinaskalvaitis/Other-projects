@@ -11,10 +11,7 @@
 						<h3>{{ $manufacturers->title }}</h3>
 						<p>{{$manufacturers->country }}</p>
 						<p>Website: {{$manufacturers->website_url}}
-							</p>
 							
-
-						<p>
 						@if ($manufacturers->category)
 		                <strong>Kategorija:</strong> {{ $manufacturers->category->title }}
 						@endif

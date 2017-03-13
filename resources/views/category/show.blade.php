@@ -2,7 +2,9 @@
 
 @section('content')
 
-	<h2>Produktu sarasas</h2>
+
+	<h1>{{ $category->title }}</h1>
+	<a href="{{route('categories.edit', ['id'=>$category->id])}}">EDIT</a>
 	<div class="row">
 	@foreach ($category->products as $products)
 		<div class="col-md-4 col-sm-6 ">

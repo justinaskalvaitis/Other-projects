@@ -19,7 +19,7 @@
 		    <ul class="nav-justified">
 		    	<li><a class="navbar-brand" href="/">Home</a></li>
 		    	<li class="dropdown"><a class="navbar-brand dropdown-toggle4" href="/categories">Kategorijos</a></li>
-		    	<li><a class="navbar-brand " href="">Gamintojas</a></li>
+		    	<li><a class="navbar-brand " href="/manufacturers">Gamintojas</a></li>
 		    	<li><a class="navbar-brand" href="/products">Produktai</a></li>
 		    </ul>
 		
