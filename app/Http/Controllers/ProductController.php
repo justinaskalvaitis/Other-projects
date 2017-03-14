@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+
+      public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,6 +40,7 @@ class ProductController extends Controller
         $manufacturers = Manufacturer::all()->pluck('title', 'id');
 
         return view ('product.form', ['categories' => $categories, 'manufacturers' => $manufacturers]);
+
       
     }
 

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'ProductController@index');
+Route::get('/', 'HomeController@index');
 
 // Route::get('categories', 'defaultControler@categories');
 
@@ -25,3 +25,7 @@ Route::resource('products', 'ProductController');
 Route::resource('categories', 'CategoryController');
 Route::resource('manufacturers', 'ManufacturerController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

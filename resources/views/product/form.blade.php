@@ -1,5 +1,5 @@
 @extends('layouts.new')
-
+@if (Auth::check())
 @section('content')
 
 <h2>Produkto sukurimas</h2>
@@ -56,3 +56,4 @@
 @endif
 
 @endsection
+@endif
