@@ -8,7 +8,7 @@
 	@foreach ($list as $products)
 		<div class="col-md-4 col-sm-6 ">
 			<div class="thumbnail">
-				<img src="{{ $products->image_url }}" alt="{{ $products->title }}">
+				<img src="/storage/{{ $products->image_url }}" alt="{{ $products->title }}">
 					<div class="caption">
 						<h3>{{ $products->title }}</h3>
 						<p>{{$products->description }}</p>
