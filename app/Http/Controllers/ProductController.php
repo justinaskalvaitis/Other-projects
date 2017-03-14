@@ -51,8 +51,11 @@ class ProductController extends Controller
     $product->manufacturer_id = $request->manufacturer_id;
     $product->price = $request->price;
     $product->quantity = $request->quantity;
-    $product->image_url = $request->image_url;
-
+    if($request->hasFile('image_url')){
+        $file = $request->file('image_url');
+        $file->store('public');
+        $product->image_url = $file->hashName();
+    }
 
     $product->save();
 

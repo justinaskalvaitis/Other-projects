@@ -5,7 +5,7 @@
 <h2>Produkto sukurimas</h2>
 
 @if(isset($product))
-{!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put'])  !!}
+{!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put', 'files' => true ])  !!}
 @else
 {!! Form::open(['route' => 'products.store', 'files' => true ,'method'=> 'post']) !!}
 @endif
@@ -37,6 +37,7 @@
 {!!Form::text('image_url', null, ['class' => 'form-control', 'placeholder' => 'image_url']) !!}
 </div>
 <div class="form-group">
+{!! Form::label('image_url', 'Product Photo', ['class'=> 'control-label']) !!}
 {!! Form::file('image_url') !!}
 </div>
 {!! Form::submit('save', ['class' => 'btn btn-primary']) !!}
